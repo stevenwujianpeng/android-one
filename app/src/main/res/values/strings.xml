@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title">茜茜是不是比鹏鹏可爱？</string>
+    <string name="true_button">正确</string>
+    <string name="false_button">错误</string>
+    <string name="correct_toast">您输入的答案正确！</string>
+    <string name="incorrect_toast">您输入的答案错误！</string>
+    <string name="question_1">您的出生地是台州三门吗？</string>
+    <string name="question_2">你出生年份是1993年吗？</string>
+    <string name="next_button">下一道题</string>
+    <string name="last_toast">这已经是最后一道题了</string>
+</resources>
