@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private int currentQuestionIndex = 0;
 
     // 从第一道题开始设置题目
-    private void updateQuestion () {
+    private void updateQuestion() {
         if (currentQuestionIndex < questions.length) {
             title.setText(questions[currentQuestionIndex].getQuestionDesc());
         } else {
@@ -28,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // 检查当前用户点击的是否是正确的
-    private void checkCurrentCorrect (boolean anwser) {
+    private void checkCurrentCorrect(boolean anwser) {
         Question curQuestion = questions[currentQuestionIndex];
         boolean curQAnswer = curQuestion.isAnswer();
 
-        if (curQAnswer == anwser){
+        if (curQAnswer == anwser) {
             Toast.makeText(MainActivity.this, R.string.correct_toast, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(MainActivity.this, R.string.incorrect_toast, Toast.LENGTH_SHORT).show();
@@ -73,6 +73,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 从外部状态中，恢复之前的index，
+        if (savedInstanceState != null) {
+            currentQuestionIndex = savedInstanceState.getInt("index");
+        }
+
         this.updateQuestion();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("index", currentQuestionIndex);
     }
 }
